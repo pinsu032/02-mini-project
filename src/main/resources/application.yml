@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: admin
+    url: jdbc:mysql://jrtp.chrojop7exng.ap-south-1.rds.amazonaws.com:3306/jrtp
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
