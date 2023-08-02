@@ -30,6 +30,8 @@ public class ReportController {
 		return  new ResponseEntity<>(plans,HttpStatus.OK);
 	}
 	
+	
+	
 	@GetMapping("/status")
 	public ResponseEntity<List<String>> getStatus(){
 		List<String> status = service.getPlanStatus();
