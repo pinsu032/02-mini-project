@@ -27,6 +27,7 @@ public class ReportController {
 	@GetMapping("/plans")
 	public ResponseEntity<List<String>> getPlans(){
 		List<String> plans = service.getPlans();
+		
 		return  new ResponseEntity<>(plans,HttpStatus.OK);
 	}
 	
