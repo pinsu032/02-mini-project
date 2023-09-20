@@ -1,0 +1,688 @@
+[36m[2023-09-18 15:25:52 DEBUG] [cli:114][39m ###############################################################################
+[36m[2023-09-18 15:25:52 DEBUG] [cli:115][39m Running command 'run'
+[36m[2023-09-18 15:25:52 DEBUG] [cli:119][39m Using settings file 'C:\Users\ujjawal.kinker\.chaostoolkit\settings.yaml'
+[36m[2023-09-18 15:25:54 DEBUG] [settings:30][39m The Chaos Toolkit settings file could not be found at 'C:\Users\ujjawal.kinker\.chaostoolkit\settings.yaml'.
+[36m[2023-09-18 15:25:54 DEBUG] [__init__:450][39m No controls to apply on 'loader'
+[36m[2023-09-18 15:25:54 DEBUG] [__init__:450][39m No controls to apply on 'loader'
+[36m[2023-09-18 15:25:54 DEBUG] [caching:24][39m Building activity cache...
+[36m[2023-09-18 15:25:54 DEBUG] [caching:35][39m Cached 4 activities
+[32m[2023-09-18 15:25:54 INFO] [experiment:58][39m Validating the experiment's syntax
+[36m[2023-09-18 15:25:54 DEBUG] [configuration:63][39m Loading configuration...
+[36m[2023-09-18 15:25:54 DEBUG] [secret:78][39m Loading secrets...
+[36m[2023-09-18 15:25:54 DEBUG] [secret:103][39m Done loading secrets
+[32m[2023-09-18 15:25:54 INFO] [experiment:109][39m Experiment looks valid
+[36m[2023-09-18 15:25:54 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2023-09-18 15:25:54 DEBUG] [cli:314][39m Runtime strategies: hypothesis - default / rollbacks - default
+[36m[2023-09-18 15:25:54 DEBUG] [caching:24][39m Building activity cache...
+[36m[2023-09-18 15:25:54 DEBUG] [caching:35][39m Cached 4 activities
+[36m[2023-09-18 15:25:54 DEBUG] [configuration:63][39m Loading configuration...
+[36m[2023-09-18 15:25:54 DEBUG] [secret:78][39m Loading secrets...
+[36m[2023-09-18 15:25:54 DEBUG] [secret:103][39m Done loading secrets
+[36m[2023-09-18 15:25:54 DEBUG] [configuration:160][39m Loading dynamic configuration...
+[36m[2023-09-18 15:25:54 DEBUG] [exit:89][39m System 'Windows-10-10.0.22000-SP0' does not expose SIGUSR signals
+[32m[2023-09-18 15:25:54 INFO] [run:369][39m Running experiment: Employee when database is down
+[36m[2023-09-18 15:25:54 DEBUG] [__init__:64][39m Initializing controls
+[32m[2023-09-18 15:25:54 INFO] [run:396][39m Steady-state strategy: default
+[32m[2023-09-18 15:25:54 INFO] [run:400][39m Rollbacks strategy: default
+[36m[2023-09-18 15:25:54 DEBUG] [__init__:450][39m No controls to apply on 'experiment'
+[36m[2023-09-18 15:25:54 DEBUG] [run:563][39m Running steady-state hypothesis before the method
+[32m[2023-09-18 15:25:54 INFO] [hypothesis:186][39m Steady state hypothesis: Employee data is available
+[36m[2023-09-18 15:25:54 DEBUG] [__init__:450][39m No controls to apply on 'hypothesis'
+[36m[2023-09-18 15:25:54 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[32m[2023-09-18 15:25:54 INFO] [activity:215][39m Probe: we-can-retrieve-employee-data
+[36m[2023-09-18 15:25:54 DEBUG] [activity:237][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Mon, 18 Sep 2023 09:55:54 GMT', 'Keep-Alive': 'timeout=60', 'Connection': 'keep-alive'}, 'body': ['Health', 'Bike Insurance', 'MakeUp']}'
+[36m[2023-09-18 15:25:54 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[36m[2023-09-18 15:25:54 DEBUG] [hypothesis:226][39m allowed tolerance is 200
+[32m[2023-09-18 15:25:54 INFO] [hypothesis:236][39m Steady state hypothesis is met!
+[36m[2023-09-18 15:25:54 DEBUG] [__init__:450][39m No controls to apply on 'hypothesis'
+[32m[2023-09-18 15:25:54 INFO] [run:684][39m Playing your experiment's method now...
+[36m[2023-09-18 15:25:54 DEBUG] [__init__:450][39m No controls to apply on 'method'
+[36m[2023-09-18 15:25:54 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[32m[2023-09-18 15:25:54 INFO] [activity:215][39m Action: enable_chaosmonkey
+[36m[2023-09-18 15:25:54 DEBUG] [python:33][39m Activity 'enable_chaosmonkey' loaded from 'C:\Users\ujjawal.kinker\AppData\Roaming\Python\Python311\site-packages\chaosspring\actions.py'
+[36m[2023-09-18 15:25:54 DEBUG] [activity:294][39m Activity failed
+    Traceback (most recent call last):
+      File "C:\Users\ujjawal.kinker\AppData\Roaming\Python\Python311\site-packages\chaoslib\provider\python.py", line 56, in run_python_activity
+        return func(**arguments)
+               ^^^^^^^^^^^^^^^^^
+      File "C:\Users\ujjawal.kinker\AppData\Roaming\Python\Python311\site-packages\chaosspring\actions.py", line 36, in enable_chaosmonkey
+        raise FailedActivity(f"Enable ChaosMonkey failed: {response.text}")
+    chaoslib.exceptions.ActivityFailed: Enable ChaosMonkey failed: {"timestamp":"2023-09-18T09:55:54.513+00:00","status":404,"error":"Not Found","message":"No message available","path":"/actuator/chaosmonkey/enable"}
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "C:\Users\ujjawal.kinker\AppData\Roaming\Python\Python311\site-packages\chaoslib\activity.py", line 287, in run_activity
+        result = run_python_activity(activity, configuration, secrets)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\ujjawal.kinker\AppData\Roaming\Python\Python311\site-packages\chaoslib\provider\python.py", line 58, in run_python_activity
+        raise ActivityFailed(
+      File "C:\Users\ujjawal.kinker\AppData\Roaming\Python\Python311\site-packages\chaoslib\provider\python.py", line 56, in run_python_activity
+        return func(**arguments)
+               ^^^^^^^^^^^^^^^^^
+      File "C:\Users\ujjawal.kinker\AppData\Roaming\Python\Python311\site-packages\chaosspring\actions.py", line 36, in enable_chaosmonkey
+        raise FailedActivity(f"Enable ChaosMonkey failed: {response.text}")
+    chaoslib.exceptions.ActivityFailed: chaoslib.exceptions.ActivityFailed: Enable ChaosMonkey failed: {"timestamp":"2023-09-18T09:55:54.513+00:00","status":404,"error":"Not Found","message":"No message available","path":"/actuator/chaosmonkey/enable"}
+[31m[2023-09-18 15:25:54 ERROR] [activity:245][39m   => failed: chaoslib.exceptions.ActivityFailed: Enable ChaosMonkey failed: {"timestamp":"2023-09-18T09:55:54.513+00:00","status":404,"error":"Not Found","message":"No message available","path":"/actuator/chaosmonkey/enable"}
+[36m[2023-09-18 15:25:54 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[36m[2023-09-18 15:25:54 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[32m[2023-09-18 15:25:54 INFO] [activity:215][39m Action: configure_assaults
+[36m[2023-09-18 15:25:54 DEBUG] [python:33][39m Activity 'configure_assaults' loaded from 'C:\Users\ujjawal.kinker\AppData\Roaming\Python\Python311\site-packages\chaosspring\actions.py'
+[36m[2023-09-18 15:25:54 DEBUG] [activity:294][39m Activity failed
+    Traceback (most recent call last):
+      File "C:\Users\ujjawal.kinker\AppData\Roaming\Python\Python311\site-packages\chaoslib\provider\python.py", line 56, in run_python_activity
+        return func(**arguments)
+               ^^^^^^^^^^^^^^^^^
+      File "C:\Users\ujjawal.kinker\AppData\Roaming\Python\Python311\site-packages\chaosspring\actions.py", line 96, in change_assaults_configuration
+        raise FailedActivity(
+    chaoslib.exceptions.ActivityFailed: Change ChaosMonkey Assaults Configuration failed: {"timestamp":"2023-09-18T09:55:54.606+00:00","status":404,"error":"Not Found","message":"No message available","path":"/actuator/chaosmonkey/assaults"}
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "C:\Users\ujjawal.kinker\AppData\Roaming\Python\Python311\site-packages\chaoslib\activity.py", line 287, in run_activity
+        result = run_python_activity(activity, configuration, secrets)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\ujjawal.kinker\AppData\Roaming\Python\Python311\site-packages\chaoslib\provider\python.py", line 58, in run_python_activity
+        raise ActivityFailed(
+      File "C:\Users\ujjawal.kinker\AppData\Roaming\Python\Python311\site-packages\chaoslib\provider\python.py", line 56, in run_python_activity
+        return func(**arguments)
+               ^^^^^^^^^^^^^^^^^
+      File "C:\Users\ujjawal.kinker\AppData\Roaming\Python\Python311\site-packages\chaosspring\actions.py", line 96, in change_assaults_configuration
+        raise FailedActivity(
+    chaoslib.exceptions.ActivityFailed: chaoslib.exceptions.ActivityFailed: Change ChaosMonkey Assaults Configuration failed: {"timestamp":"2023-09-18T09:55:54.606+00:00","status":404,"error":"Not Found","message":"No message available","path":"/actuator/chaosmonkey/assaults"}
+[31m[2023-09-18 15:25:54 ERROR] [activity:245][39m   => failed: chaoslib.exceptions.ActivityFailed: Change ChaosMonkey Assaults Configuration failed: {"timestamp":"2023-09-18T09:55:54.606+00:00","status":404,"error":"Not Found","message":"No message available","path":"/actuator/chaosmonkey/assaults"}
+[36m[2023-09-18 15:25:54 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[36m[2023-09-18 15:25:54 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[32m[2023-09-18 15:25:54 INFO] [activity:215][39m Action: configure_repository_watcher
+[36m[2023-09-18 15:25:54 DEBUG] [activity:237][39m   => succeeded with '{'status': 404, 'headers': {'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Mon, 18 Sep 2023 09:55:54 GMT', 'Keep-Alive': 'timeout=60', 'Connection': 'keep-alive'}, 'body': {'timestamp': '2023-09-18T09:55:54.636+00:00', 'status': 404, 'error': 'Not Found', 'message': 'No message available', 'path': '/actuator/chaosmonkey/watchers'}}'
+[36m[2023-09-18 15:25:54 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[36m[2023-09-18 15:25:54 DEBUG] [__init__:450][39m No controls to apply on 'method'
+[36m[2023-09-18 15:25:54 DEBUG] [run:603][39m Running steady-state hypothesis after the method
+[32m[2023-09-18 15:25:54 INFO] [hypothesis:186][39m Steady state hypothesis: Employee data is available
+[36m[2023-09-18 15:25:54 DEBUG] [__init__:450][39m No controls to apply on 'hypothesis'
+[36m[2023-09-18 15:25:54 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[32m[2023-09-18 15:25:54 INFO] [activity:215][39m Probe: we-can-retrieve-employee-data
+[36m[2023-09-18 15:25:57 DEBUG] [activity:237][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Mon, 18 Sep 2023 09:55:57 GMT', 'Keep-Alive': 'timeout=60', 'Connection': 'keep-alive'}, 'body': ['Health', 'Bike Insurance', 'MakeUp']}'
+[36m[2023-09-18 15:25:57 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[36m[2023-09-18 15:25:57 DEBUG] [hypothesis:226][39m allowed tolerance is 200
+[32m[2023-09-18 15:25:57 INFO] [hypothesis:236][39m Steady state hypothesis is met!
+[36m[2023-09-18 15:25:57 DEBUG] [__init__:450][39m No controls to apply on 'hypothesis'
+[32m[2023-09-18 15:25:57 INFO] [run:964][39m Let's rollback...
+[36m[2023-09-18 15:25:57 DEBUG] [__init__:450][39m No controls to apply on 'rollback'
+[32m[2023-09-18 15:25:57 INFO] [rollback:34][39m Rollback: disable_chaosmonkey
+[36m[2023-09-18 15:25:57 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[32m[2023-09-18 15:25:57 INFO] [activity:215][39m Action: disable_chaosmonkey
+[36m[2023-09-18 15:25:57 DEBUG] [python:33][39m Activity 'disable_chaosmonkey' loaded from 'C:\Users\ujjawal.kinker\AppData\Roaming\Python\Python311\site-packages\chaosspring\actions.py'
+[36m[2023-09-18 15:25:57 DEBUG] [activity:294][39m Activity failed
+    Traceback (most recent call last):
+      File "C:\Users\ujjawal.kinker\AppData\Roaming\Python\Python311\site-packages\chaoslib\provider\python.py", line 56, in run_python_activity
+        return func(**arguments)
+               ^^^^^^^^^^^^^^^^^
+      File "C:\Users\ujjawal.kinker\AppData\Roaming\Python\Python311\site-packages\chaosspring\actions.py", line 65, in disable_chaosmonkey
+        raise FailedActivity(f"Disable ChaosMonkey failed: {response.text}")
+    chaoslib.exceptions.ActivityFailed: Disable ChaosMonkey failed: {"timestamp":"2023-09-18T09:55:57.746+00:00","status":404,"error":"Not Found","message":"No message available","path":"/actuator/chaosmonkey/disable"}
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "C:\Users\ujjawal.kinker\AppData\Roaming\Python\Python311\site-packages\chaoslib\activity.py", line 287, in run_activity
+        result = run_python_activity(activity, configuration, secrets)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\ujjawal.kinker\AppData\Roaming\Python\Python311\site-packages\chaoslib\provider\python.py", line 58, in run_python_activity
+        raise ActivityFailed(
+      File "C:\Users\ujjawal.kinker\AppData\Roaming\Python\Python311\site-packages\chaoslib\provider\python.py", line 56, in run_python_activity
+        return func(**arguments)
+               ^^^^^^^^^^^^^^^^^
+      File "C:\Users\ujjawal.kinker\AppData\Roaming\Python\Python311\site-packages\chaosspring\actions.py", line 65, in disable_chaosmonkey
+        raise FailedActivity(f"Disable ChaosMonkey failed: {response.text}")
+    chaoslib.exceptions.ActivityFailed: chaoslib.exceptions.ActivityFailed: Disable ChaosMonkey failed: {"timestamp":"2023-09-18T09:55:57.746+00:00","status":404,"error":"Not Found","message":"No message available","path":"/actuator/chaosmonkey/disable"}
+[31m[2023-09-18 15:25:57 ERROR] [activity:245][39m   => failed: chaoslib.exceptions.ActivityFailed: Disable ChaosMonkey failed: {"timestamp":"2023-09-18T09:55:57.746+00:00","status":404,"error":"Not Found","message":"No message available","path":"/actuator/chaosmonkey/disable"}
+[36m[2023-09-18 15:25:57 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[36m[2023-09-18 15:25:57 DEBUG] [__init__:450][39m No controls to apply on 'rollback'
+[32m[2023-09-18 15:25:57 INFO] [run:515][39m Experiment ended with status: completed
+[36m[2023-09-18 15:25:57 DEBUG] [__init__:450][39m No controls to apply on 'experiment'
+[36m[2023-09-18 15:25:57 DEBUG] [__init__:103][39m Cleaning up controls
+[36m[2023-09-18 15:25:57 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2023-09-18 15:31:44 DEBUG] [cli:114][39m ###############################################################################
+[36m[2023-09-18 15:31:44 DEBUG] [cli:115][39m Running command 'run'
+[36m[2023-09-18 15:31:44 DEBUG] [cli:119][39m Using settings file 'C:\Users\ujjawal.kinker\.chaostoolkit\settings.yaml'
+[33m[2023-09-18 15:31:46 WARNING] [check:33][39m 
+    There is a new version (1.16.0) of the chaostoolkit available.
+    You may upgrade by typing:
+    
+    $ pip install -U chaostoolkit
+    
+    Please review changes at https://github.com/chaostoolkit/chaostoolkit/blob/master/CHANGELOG.md
+    
+[36m[2023-09-18 15:31:46 DEBUG] [settings:30][39m The Chaos Toolkit settings file could not be found at 'C:\Users\ujjawal.kinker\.chaostoolkit\settings.yaml'.
+[36m[2023-09-18 15:31:46 DEBUG] [__init__:450][39m No controls to apply on 'loader'
+[36m[2023-09-18 15:31:46 DEBUG] [__init__:450][39m No controls to apply on 'loader'
+[36m[2023-09-18 15:31:46 DEBUG] [caching:24][39m Building activity cache...
+[36m[2023-09-18 15:31:46 DEBUG] [caching:35][39m Cached 4 activities
+[32m[2023-09-18 15:31:46 INFO] [experiment:58][39m Validating the experiment's syntax
+[36m[2023-09-18 15:31:46 DEBUG] [configuration:63][39m Loading configuration...
+[36m[2023-09-18 15:31:46 DEBUG] [secret:78][39m Loading secrets...
+[36m[2023-09-18 15:31:46 DEBUG] [secret:103][39m Done loading secrets
+[32m[2023-09-18 15:31:46 INFO] [experiment:109][39m Experiment looks valid
+[36m[2023-09-18 15:31:46 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2023-09-18 15:31:46 DEBUG] [cli:314][39m Runtime strategies: hypothesis - default / rollbacks - default
+[36m[2023-09-18 15:31:46 DEBUG] [caching:24][39m Building activity cache...
+[36m[2023-09-18 15:31:46 DEBUG] [caching:35][39m Cached 4 activities
+[36m[2023-09-18 15:31:46 DEBUG] [configuration:63][39m Loading configuration...
+[36m[2023-09-18 15:31:46 DEBUG] [secret:78][39m Loading secrets...
+[36m[2023-09-18 15:31:46 DEBUG] [secret:103][39m Done loading secrets
+[36m[2023-09-18 15:31:46 DEBUG] [configuration:160][39m Loading dynamic configuration...
+[36m[2023-09-18 15:31:46 DEBUG] [exit:89][39m System 'Windows-10-10.0.22000-SP0' does not expose SIGUSR signals
+[32m[2023-09-18 15:31:46 INFO] [run:369][39m Running experiment: Employee when database is down
+[36m[2023-09-18 15:31:46 DEBUG] [__init__:64][39m Initializing controls
+[32m[2023-09-18 15:31:46 INFO] [run:396][39m Steady-state strategy: default
+[32m[2023-09-18 15:31:46 INFO] [run:400][39m Rollbacks strategy: default
+[36m[2023-09-18 15:31:46 DEBUG] [__init__:450][39m No controls to apply on 'experiment'
+[36m[2023-09-18 15:31:46 DEBUG] [run:563][39m Running steady-state hypothesis before the method
+[32m[2023-09-18 15:31:46 INFO] [hypothesis:186][39m Steady state hypothesis: Employee data is available
+[36m[2023-09-18 15:31:46 DEBUG] [__init__:450][39m No controls to apply on 'hypothesis'
+[36m[2023-09-18 15:31:46 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[32m[2023-09-18 15:31:46 INFO] [activity:215][39m Probe: we-can-retrieve-employee-data
+[36m[2023-09-18 15:31:48 DEBUG] [activity:237][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Mon, 18 Sep 2023 10:01:48 GMT', 'Keep-Alive': 'timeout=60', 'Connection': 'keep-alive'}, 'body': ['Health', 'Bike Insurance', 'MakeUp']}'
+[36m[2023-09-18 15:31:48 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[36m[2023-09-18 15:31:48 DEBUG] [hypothesis:226][39m allowed tolerance is 200
+[32m[2023-09-18 15:31:48 INFO] [hypothesis:236][39m Steady state hypothesis is met!
+[36m[2023-09-18 15:31:48 DEBUG] [__init__:450][39m No controls to apply on 'hypothesis'
+[32m[2023-09-18 15:31:48 INFO] [run:684][39m Playing your experiment's method now...
+[36m[2023-09-18 15:31:48 DEBUG] [__init__:450][39m No controls to apply on 'method'
+[36m[2023-09-18 15:31:48 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[32m[2023-09-18 15:31:48 INFO] [activity:215][39m Action: enable_chaosmonkey
+[36m[2023-09-18 15:31:48 DEBUG] [python:33][39m Activity 'enable_chaosmonkey' loaded from 'C:\Users\ujjawal.kinker\AppData\Roaming\Python\Python311\site-packages\chaosspring\actions.py'
+[36m[2023-09-18 15:31:48 DEBUG] [activity:237][39m   => succeeded with 'Chaos Monkey is enabled'
+[36m[2023-09-18 15:31:48 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[36m[2023-09-18 15:31:48 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[32m[2023-09-18 15:31:48 INFO] [activity:215][39m Action: configure_assaults
+[36m[2023-09-18 15:31:48 DEBUG] [python:33][39m Activity 'configure_assaults' loaded from 'C:\Users\ujjawal.kinker\AppData\Roaming\Python\Python311\site-packages\chaosspring\actions.py'
+[36m[2023-09-18 15:31:48 DEBUG] [activity:237][39m   => succeeded with 'Assault config has changed'
+[36m[2023-09-18 15:31:48 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[36m[2023-09-18 15:31:48 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[32m[2023-09-18 15:31:48 INFO] [activity:215][39m Action: configure_repository_watcher
+[36m[2023-09-18 15:31:48 DEBUG] [activity:237][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'text/plain;charset=UTF-8', 'Content-Length': '26', 'Date': 'Mon, 18 Sep 2023 10:01:48 GMT', 'Keep-Alive': 'timeout=60', 'Connection': 'keep-alive'}, 'body': 'Watcher config has changed'}'
+[36m[2023-09-18 15:31:48 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[36m[2023-09-18 15:31:48 DEBUG] [__init__:450][39m No controls to apply on 'method'
+[36m[2023-09-18 15:31:48 DEBUG] [run:603][39m Running steady-state hypothesis after the method
+[32m[2023-09-18 15:31:48 INFO] [hypothesis:186][39m Steady state hypothesis: Employee data is available
+[36m[2023-09-18 15:31:48 DEBUG] [__init__:450][39m No controls to apply on 'hypothesis'
+[36m[2023-09-18 15:31:48 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[32m[2023-09-18 15:31:48 INFO] [activity:215][39m Probe: we-can-retrieve-employee-data
+[36m[2023-09-18 15:31:48 DEBUG] [activity:237][39m   => succeeded with '{'status': 500, 'headers': {'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Mon, 18 Sep 2023 10:01:48 GMT', 'Connection': 'close'}, 'body': {'timestamp': '2023-09-18T10:01:48.848+00:00', 'status': 500, 'error': 'Internal Server Error', 'trace': 'java.lang.reflect.UndeclaredThrowableException\r\n\tat jdk.proxy4/jdk.proxy4.$Proxy137.getPlans(Unknown Source)\r\n\tat com.ms.service.ReportServiceImpl.getPlans(ReportServiceImpl.java:44)\r\n\tat com.ms.service.ReportServiceImpl$$FastClassBySpringCGLIB$$d5258c8d.invoke(<generated>)\r\n\tat org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)\r\n\tat org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:793)\r\n\tat org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)\r\n\tat org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)\r\n\tat org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:89)\r\n\tat de.codecentric.spring.boot.chaos.monkey.watcher.SpringServiceAspect.intercept(SpringServiceAspect.java:62)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:568)\r\n\tat org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:634)\r\n\tat org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:624)\r\n\tat org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:72)\r\n\tat org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)\r\n\tat org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)\r\n\tat org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)\r\n\tat org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)\r\n\tat org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)\r\n\tat org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708)\r\n\tat com.ms.service.ReportServiceImpl$$EnhancerBySpringCGLIB$$41663a43.getPlans(<generated>)\r\n\tat com.ms.controller.ReportController.getPlans(ReportController.java:29)\r\n\tat com.ms.controller.ReportController$$FastClassBySpringCGLIB$$97929e7.invoke(<generated>)\r\n\tat org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)\r\n\tat org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:793)\r\n\tat org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)\r\n\tat org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)\r\n\tat org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:89)\r\n\tat de.codecentric.spring.boot.chaos.monkey.watcher.SpringRestControllerAspect.intercept(SpringRestControllerAspect.java:61)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:568)\r\n\tat org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:634)\r\n\tat org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:624)\r\n\tat org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:72)\r\n\tat org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)\r\n\tat org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)\r\n\tat org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)\r\n\tat org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)\r\n\tat org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)\r\n\tat org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708)\r\n\tat com.ms.controller.ReportController$$EnhancerBySpringCGLIB$$f1b93a91.getPlans(<generated>)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:568)\r\n\tat org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)\r\n\tat org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)\r\n\tat org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)\r\n\tat org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)\r\n\tat org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)\r\n\tat org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)\r\n\tat org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1072)\r\n\tat org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)\r\n\tat org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)\r\n\tat org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)\r\n\tat javax.servlet.http.HttpServlet.service(HttpServlet.java:529)\r\n\tat org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)\r\n\tat javax.servlet.http.HttpServlet.service(HttpServlet.java:623)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)\r\n\tat org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)\r\n\tat org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)\r\n\tat org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)\r\n\tat org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)\r\n\tat org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)\r\n\tat org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)\r\n\tat org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)\r\n\tat org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481)\r\n\tat org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)\r\n\tat org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)\r\n\tat org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)\r\n\tat org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)\r\n\tat org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390)\r\n\tat org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)\r\n\tat org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:926)\r\n\tat org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)\r\n\tat org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)\r\n\tat org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)\r\n\tat org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)\r\n\tat org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)\r\n\tat java.base/java.lang.Thread.run(Thread.java:833)\r\nCaused by: java.net.ConnectException: Connection timed out\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)\r\n\tat java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)\r\n\tat java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)\r\n\tat de.codecentric.spring.boot.chaos.monkey.configuration.AssaultException.throwExceptionInstance(AssaultException.java:64)\r\n\tat de.codecentric.spring.boot.chaos.monkey.assaults.ExceptionAssault.attack(ExceptionAssault.java:55)\r\n\tat de.codecentric.spring.boot.chaos.monkey.component.ChaosMonkeyRequestScope.chooseAndRunAttack(ChaosMonkeyRequestScope.java:109)\r\n\tat de.codecentric.spring.boot.chaos.monkey.component.ChaosMonkeyRequestScope.callChaosMonkey(ChaosMonkeyRequestScope.java:96)\r\n\tat de.codecentric.spring.boot.chaos.monkey.watcher.SpringRepositoryAspectJPA.intercept(SpringRepositoryAspectJPA.java:58)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:568)\r\n\tat org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:634)\r\n\tat org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:624)\r\n\tat org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:72)\r\n\tat org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:175)\r\n\tat org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)\r\n\tat org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)\r\n\tat org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:241)\r\n\t... 99 more\r\n', 'message': 'No message available', 'path': '/report/plans'}}'
+[36m[2023-09-18 15:31:48 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[36m[2023-09-18 15:31:48 DEBUG] [hypothesis:226][39m allowed tolerance is 200
+[36m[2023-09-18 15:31:48 DEBUG] [__init__:450][39m No controls to apply on 'hypothesis'
+[31m[2023-09-18 15:31:48 CRITICAL] [run:622][39m Steady state probe 'we-can-retrieve-employee-data' is not in the given tolerance so failing this experiment
+[32m[2023-09-18 15:31:48 INFO] [run:964][39m Let's rollback...
+[36m[2023-09-18 15:31:48 DEBUG] [__init__:450][39m No controls to apply on 'rollback'
+[32m[2023-09-18 15:31:48 INFO] [rollback:34][39m Rollback: disable_chaosmonkey
+[36m[2023-09-18 15:31:48 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[32m[2023-09-18 15:31:48 INFO] [activity:215][39m Action: disable_chaosmonkey
+[36m[2023-09-18 15:31:48 DEBUG] [python:33][39m Activity 'disable_chaosmonkey' loaded from 'C:\Users\ujjawal.kinker\AppData\Roaming\Python\Python311\site-packages\chaosspring\actions.py'
+[36m[2023-09-18 15:31:48 DEBUG] [activity:237][39m   => succeeded with 'Chaos Monkey is disabled'
+[36m[2023-09-18 15:31:48 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[36m[2023-09-18 15:31:48 DEBUG] [__init__:450][39m No controls to apply on 'rollback'
+[32m[2023-09-18 15:31:48 INFO] [run:515][39m Experiment ended with status: deviated
+[32m[2023-09-18 15:31:48 INFO] [run:517][39m The steady-state has deviated, a weakness may have been discovered
+[36m[2023-09-18 15:31:48 DEBUG] [__init__:450][39m No controls to apply on 'experiment'
+[36m[2023-09-18 15:31:48 DEBUG] [__init__:103][39m Cleaning up controls
+[36m[2023-09-18 15:31:48 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2023-09-18 15:36:18 DEBUG] [cli:114][39m ###############################################################################
+[36m[2023-09-18 15:36:18 DEBUG] [cli:115][39m Running command 'run'
+[36m[2023-09-18 15:36:18 DEBUG] [cli:119][39m Using settings file 'C:\Users\ujjawal.kinker\.chaostoolkit\settings.yaml'
+[33m[2023-09-18 15:36:19 WARNING] [check:33][39m 
+    There is a new version (1.16.0) of the chaostoolkit available.
+    You may upgrade by typing:
+    
+    $ pip install -U chaostoolkit
+    
+    Please review changes at https://github.com/chaostoolkit/chaostoolkit/blob/master/CHANGELOG.md
+    
+[36m[2023-09-18 15:36:19 DEBUG] [settings:30][39m The Chaos Toolkit settings file could not be found at 'C:\Users\ujjawal.kinker\.chaostoolkit\settings.yaml'.
+[36m[2023-09-18 15:36:19 DEBUG] [__init__:450][39m No controls to apply on 'loader'
+[36m[2023-09-18 15:36:19 DEBUG] [__init__:450][39m No controls to apply on 'loader'
+[36m[2023-09-18 15:36:19 DEBUG] [caching:24][39m Building activity cache...
+[36m[2023-09-18 15:36:19 DEBUG] [caching:35][39m Cached 4 activities
+[32m[2023-09-18 15:36:19 INFO] [experiment:58][39m Validating the experiment's syntax
+[36m[2023-09-18 15:36:19 DEBUG] [configuration:63][39m Loading configuration...
+[36m[2023-09-18 15:36:19 DEBUG] [secret:78][39m Loading secrets...
+[36m[2023-09-18 15:36:19 DEBUG] [secret:103][39m Done loading secrets
+[32m[2023-09-18 15:36:19 INFO] [experiment:109][39m Experiment looks valid
+[36m[2023-09-18 15:36:19 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2023-09-18 15:36:19 DEBUG] [cli:314][39m Runtime strategies: hypothesis - default / rollbacks - default
+[36m[2023-09-18 15:36:19 DEBUG] [caching:24][39m Building activity cache...
+[36m[2023-09-18 15:36:19 DEBUG] [caching:35][39m Cached 4 activities
+[36m[2023-09-18 15:36:19 DEBUG] [configuration:63][39m Loading configuration...
+[36m[2023-09-18 15:36:19 DEBUG] [secret:78][39m Loading secrets...
+[36m[2023-09-18 15:36:19 DEBUG] [secret:103][39m Done loading secrets
+[36m[2023-09-18 15:36:19 DEBUG] [configuration:160][39m Loading dynamic configuration...
+[36m[2023-09-18 15:36:19 DEBUG] [exit:89][39m System 'Windows-10-10.0.22000-SP0' does not expose SIGUSR signals
+[32m[2023-09-18 15:36:19 INFO] [run:369][39m Running experiment: Employee when database is down
+[36m[2023-09-18 15:36:19 DEBUG] [__init__:64][39m Initializing controls
+[32m[2023-09-18 15:36:19 INFO] [run:396][39m Steady-state strategy: default
+[32m[2023-09-18 15:36:19 INFO] [run:400][39m Rollbacks strategy: default
+[36m[2023-09-18 15:36:20 DEBUG] [__init__:450][39m No controls to apply on 'experiment'
+[36m[2023-09-18 15:36:20 DEBUG] [run:563][39m Running steady-state hypothesis before the method
+[32m[2023-09-18 15:36:20 INFO] [hypothesis:186][39m Steady state hypothesis: Employee data is available
+[36m[2023-09-18 15:36:20 DEBUG] [__init__:450][39m No controls to apply on 'hypothesis'
+[36m[2023-09-18 15:36:20 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[32m[2023-09-18 15:36:20 INFO] [activity:215][39m Probe: we-can-retrieve-employee-data
+[36m[2023-09-18 15:36:22 DEBUG] [activity:237][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Mon, 18 Sep 2023 10:06:22 GMT', 'Keep-Alive': 'timeout=60', 'Connection': 'keep-alive'}, 'body': ['Health', 'Bike Insurance', 'MakeUp']}'
+[36m[2023-09-18 15:36:22 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[36m[2023-09-18 15:36:22 DEBUG] [hypothesis:226][39m allowed tolerance is 200
+[32m[2023-09-18 15:36:22 INFO] [hypothesis:236][39m Steady state hypothesis is met!
+[36m[2023-09-18 15:36:22 DEBUG] [__init__:450][39m No controls to apply on 'hypothesis'
+[32m[2023-09-18 15:36:22 INFO] [run:684][39m Playing your experiment's method now...
+[36m[2023-09-18 15:36:22 DEBUG] [__init__:450][39m No controls to apply on 'method'
+[36m[2023-09-18 15:36:22 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[32m[2023-09-18 15:36:22 INFO] [activity:215][39m Action: enable_chaosmonkey
+[36m[2023-09-18 15:36:22 DEBUG] [python:33][39m Activity 'enable_chaosmonkey' loaded from 'C:\Users\ujjawal.kinker\AppData\Roaming\Python\Python311\site-packages\chaosspring\actions.py'
+[36m[2023-09-18 15:36:22 DEBUG] [activity:237][39m   => succeeded with 'Chaos Monkey is enabled'
+[36m[2023-09-18 15:36:22 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[36m[2023-09-18 15:36:22 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[32m[2023-09-18 15:36:22 INFO] [activity:215][39m Action: configure_assaults
+[36m[2023-09-18 15:36:22 DEBUG] [python:33][39m Activity 'configure_assaults' loaded from 'C:\Users\ujjawal.kinker\AppData\Roaming\Python\Python311\site-packages\chaosspring\actions.py'
+[36m[2023-09-18 15:36:22 DEBUG] [activity:237][39m   => succeeded with 'Assault config has changed'
+[36m[2023-09-18 15:36:22 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[36m[2023-09-18 15:36:22 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[32m[2023-09-18 15:36:22 INFO] [activity:215][39m Action: configure_repository_watcher
+[36m[2023-09-18 15:36:22 DEBUG] [activity:237][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'text/plain;charset=UTF-8', 'Content-Length': '26', 'Date': 'Mon, 18 Sep 2023 10:06:22 GMT', 'Keep-Alive': 'timeout=60', 'Connection': 'keep-alive'}, 'body': 'Watcher config has changed'}'
+[36m[2023-09-18 15:36:22 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[36m[2023-09-18 15:36:22 DEBUG] [__init__:450][39m No controls to apply on 'method'
+[36m[2023-09-18 15:36:22 DEBUG] [run:603][39m Running steady-state hypothesis after the method
+[32m[2023-09-18 15:36:22 INFO] [hypothesis:186][39m Steady state hypothesis: Employee data is available
+[36m[2023-09-18 15:36:22 DEBUG] [__init__:450][39m No controls to apply on 'hypothesis'
+[36m[2023-09-18 15:36:22 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[32m[2023-09-18 15:36:22 INFO] [activity:215][39m Probe: we-can-retrieve-employee-data
+[36m[2023-09-18 15:36:22 DEBUG] [activity:237][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Mon, 18 Sep 2023 10:06:22 GMT', 'Keep-Alive': 'timeout=60', 'Connection': 'keep-alive'}, 'body': []}'
+[36m[2023-09-18 15:36:22 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[36m[2023-09-18 15:36:22 DEBUG] [hypothesis:226][39m allowed tolerance is 200
+[32m[2023-09-18 15:36:22 INFO] [hypothesis:236][39m Steady state hypothesis is met!
+[36m[2023-09-18 15:36:22 DEBUG] [__init__:450][39m No controls to apply on 'hypothesis'
+[32m[2023-09-18 15:36:22 INFO] [run:964][39m Let's rollback...
+[36m[2023-09-18 15:36:22 DEBUG] [__init__:450][39m No controls to apply on 'rollback'
+[32m[2023-09-18 15:36:22 INFO] [rollback:34][39m Rollback: disable_chaosmonkey
+[36m[2023-09-18 15:36:22 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[32m[2023-09-18 15:36:22 INFO] [activity:215][39m Action: disable_chaosmonkey
+[36m[2023-09-18 15:36:22 DEBUG] [python:33][39m Activity 'disable_chaosmonkey' loaded from 'C:\Users\ujjawal.kinker\AppData\Roaming\Python\Python311\site-packages\chaosspring\actions.py'
+[36m[2023-09-18 15:36:22 DEBUG] [activity:237][39m   => succeeded with 'Chaos Monkey is disabled'
+[36m[2023-09-18 15:36:22 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[36m[2023-09-18 15:36:22 DEBUG] [__init__:450][39m No controls to apply on 'rollback'
+[32m[2023-09-18 15:36:22 INFO] [run:515][39m Experiment ended with status: completed
+[36m[2023-09-18 15:36:22 DEBUG] [__init__:450][39m No controls to apply on 'experiment'
+[36m[2023-09-18 15:36:22 DEBUG] [__init__:103][39m Cleaning up controls
+[36m[2023-09-18 15:36:22 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2023-09-18 15:38:07 DEBUG] [cli:114][39m ###############################################################################
+[36m[2023-09-18 15:38:07 DEBUG] [cli:115][39m Running command 'run'
+[36m[2023-09-18 15:38:07 DEBUG] [cli:119][39m Using settings file 'C:\Users\ujjawal.kinker\.chaostoolkit\settings.yaml'
+[33m[2023-09-18 15:38:09 WARNING] [check:33][39m 
+    There is a new version (1.16.0) of the chaostoolkit available.
+    You may upgrade by typing:
+    
+    $ pip install -U chaostoolkit
+    
+    Please review changes at https://github.com/chaostoolkit/chaostoolkit/blob/master/CHANGELOG.md
+    
+[36m[2023-09-18 15:38:09 DEBUG] [settings:30][39m The Chaos Toolkit settings file could not be found at 'C:\Users\ujjawal.kinker\.chaostoolkit\settings.yaml'.
+[36m[2023-09-18 15:38:09 DEBUG] [__init__:450][39m No controls to apply on 'loader'
+[36m[2023-09-18 15:38:09 DEBUG] [__init__:450][39m No controls to apply on 'loader'
+[36m[2023-09-18 15:38:09 DEBUG] [caching:24][39m Building activity cache...
+[36m[2023-09-18 15:38:09 DEBUG] [caching:35][39m Cached 4 activities
+[32m[2023-09-18 15:38:09 INFO] [experiment:58][39m Validating the experiment's syntax
+[36m[2023-09-18 15:38:09 DEBUG] [configuration:63][39m Loading configuration...
+[36m[2023-09-18 15:38:09 DEBUG] [secret:78][39m Loading secrets...
+[36m[2023-09-18 15:38:09 DEBUG] [secret:103][39m Done loading secrets
+[32m[2023-09-18 15:38:09 INFO] [experiment:109][39m Experiment looks valid
+[36m[2023-09-18 15:38:09 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2023-09-18 15:38:09 DEBUG] [cli:314][39m Runtime strategies: hypothesis - default / rollbacks - default
+[36m[2023-09-18 15:38:09 DEBUG] [caching:24][39m Building activity cache...
+[36m[2023-09-18 15:38:09 DEBUG] [caching:35][39m Cached 4 activities
+[36m[2023-09-18 15:38:09 DEBUG] [configuration:63][39m Loading configuration...
+[36m[2023-09-18 15:38:09 DEBUG] [secret:78][39m Loading secrets...
+[36m[2023-09-18 15:38:09 DEBUG] [secret:103][39m Done loading secrets
+[36m[2023-09-18 15:38:09 DEBUG] [configuration:160][39m Loading dynamic configuration...
+[36m[2023-09-18 15:38:09 DEBUG] [exit:89][39m System 'Windows-10-10.0.22000-SP0' does not expose SIGUSR signals
+[32m[2023-09-18 15:38:09 INFO] [run:369][39m Running experiment: Employee when database is down
+[36m[2023-09-18 15:38:09 DEBUG] [__init__:64][39m Initializing controls
+[32m[2023-09-18 15:38:09 INFO] [run:396][39m Steady-state strategy: default
+[32m[2023-09-18 15:38:09 INFO] [run:400][39m Rollbacks strategy: default
+[36m[2023-09-18 15:38:09 DEBUG] [__init__:450][39m No controls to apply on 'experiment'
+[36m[2023-09-18 15:38:09 DEBUG] [run:563][39m Running steady-state hypothesis before the method
+[32m[2023-09-18 15:38:09 INFO] [hypothesis:186][39m Steady state hypothesis: Employee data is available
+[36m[2023-09-18 15:38:09 DEBUG] [__init__:450][39m No controls to apply on 'hypothesis'
+[36m[2023-09-18 15:38:09 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[32m[2023-09-18 15:38:09 INFO] [activity:215][39m Probe: we-can-retrieve-employee-data
+[36m[2023-09-18 15:38:09 DEBUG] [activity:237][39m   => succeeded with '{'status': 500, 'headers': {'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Mon, 18 Sep 2023 10:08:09 GMT', 'Connection': 'close'}, 'body': {'timestamp': '2023-09-18T10:08:09.456+00:00', 'status': 500, 'error': 'Internal Server Error', 'trace': 'java.lang.Error: Unresolved compilation problem: \n\tSyntax error, insert ")" to complete Expression\n\r\n\tat com.ms.service.ReportServiceImpl.getPlans(ReportServiceImpl.java:47)\r\n\tat com.ms.service.ReportServiceImpl$$FastClassBySpringCGLIB$$d5258c8d.invoke(<generated>)\r\n\tat org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)\r\n\tat org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:793)\r\n\tat org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)\r\n\tat org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)\r\n\tat org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:89)\r\n\tat de.codecentric.spring.boot.chaos.monkey.watcher.SpringServiceAspect.intercept(SpringServiceAspect.java:62)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:568)\r\n\tat org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:634)\r\n\tat org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:624)\r\n\tat org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:72)\r\n\tat org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)\r\n\tat org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)\r\n\tat org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)\r\n\tat org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)\r\n\tat org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)\r\n\tat org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708)\r\n\tat com.ms.service.ReportServiceImpl$$EnhancerBySpringCGLIB$$41663a43.getPlans(<generated>)\r\n\tat com.ms.controller.ReportController.getPlans(ReportController.java:29)\r\n\tat com.ms.controller.ReportController$$FastClassBySpringCGLIB$$97929e7.invoke(<generated>)\r\n\tat org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)\r\n\tat org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:793)\r\n\tat org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)\r\n\tat org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)\r\n\tat org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:89)\r\n\tat de.codecentric.spring.boot.chaos.monkey.watcher.SpringRestControllerAspect.intercept(SpringRestControllerAspect.java:61)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:568)\r\n\tat org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:634)\r\n\tat org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:624)\r\n\tat org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:72)\r\n\tat org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)\r\n\tat org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)\r\n\tat org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)\r\n\tat org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)\r\n\tat org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)\r\n\tat org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708)\r\n\tat com.ms.controller.ReportController$$EnhancerBySpringCGLIB$$f1b93a91.getPlans(<generated>)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:568)\r\n\tat org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)\r\n\tat org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)\r\n\tat org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)\r\n\tat org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)\r\n\tat org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)\r\n\tat org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)\r\n\tat org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1072)\r\n\tat org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)\r\n\tat org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)\r\n\tat org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)\r\n\tat javax.servlet.http.HttpServlet.service(HttpServlet.java:529)\r\n\tat org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)\r\n\tat javax.servlet.http.HttpServlet.service(HttpServlet.java:623)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)\r\n\tat org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)\r\n\tat org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)\r\n\tat org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)\r\n\tat org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)\r\n\tat org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)\r\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)\r\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)\r\n\tat org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)\r\n\tat org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)\r\n\tat org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481)\r\n\tat org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)\r\n\tat org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)\r\n\tat org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)\r\n\tat org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)\r\n\tat org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390)\r\n\tat org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)\r\n\tat org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:926)\r\n\tat org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)\r\n\tat org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)\r\n\tat org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)\r\n\tat org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)\r\n\tat org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)\r\n\tat java.base/java.lang.Thread.run(Thread.java:833)\r\n', 'message': 'Unresolved compilation problem: \n\tSyntax error, insert ")" to complete Expression\n', 'path': '/report/plans'}}'
+[36m[2023-09-18 15:38:09 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[36m[2023-09-18 15:38:09 DEBUG] [hypothesis:226][39m allowed tolerance is 200
+[36m[2023-09-18 15:38:09 DEBUG] [__init__:450][39m No controls to apply on 'hypothesis'
+[31m[2023-09-18 15:38:09 CRITICAL] [run:583][39m Steady state probe 'we-can-retrieve-employee-data' is not in the given tolerance so failing this experiment
+[32m[2023-09-18 15:38:09 INFO] [run:964][39m Let's rollback...
+[36m[2023-09-18 15:38:09 DEBUG] [__init__:450][39m No controls to apply on 'rollback'
+[32m[2023-09-18 15:38:09 INFO] [rollback:34][39m Rollback: disable_chaosmonkey
+[36m[2023-09-18 15:38:09 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[32m[2023-09-18 15:38:09 INFO] [activity:215][39m Action: disable_chaosmonkey
+[36m[2023-09-18 15:38:09 DEBUG] [python:33][39m Activity 'disable_chaosmonkey' loaded from 'C:\Users\ujjawal.kinker\AppData\Roaming\Python\Python311\site-packages\chaosspring\actions.py'
+[36m[2023-09-18 15:38:09 DEBUG] [activity:237][39m   => succeeded with 'Chaos Monkey is disabled'
+[36m[2023-09-18 15:38:09 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[36m[2023-09-18 15:38:09 DEBUG] [__init__:450][39m No controls to apply on 'rollback'
+[32m[2023-09-18 15:38:09 INFO] [run:515][39m Experiment ended with status: completed
+[36m[2023-09-18 15:38:09 DEBUG] [__init__:450][39m No controls to apply on 'experiment'
+[36m[2023-09-18 15:38:09 DEBUG] [__init__:103][39m Cleaning up controls
+[36m[2023-09-18 15:38:09 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2023-09-18 15:38:51 DEBUG] [cli:114][39m ###############################################################################
+[36m[2023-09-18 15:38:51 DEBUG] [cli:115][39m Running command 'run'
+[36m[2023-09-18 15:38:51 DEBUG] [cli:119][39m Using settings file 'C:\Users\ujjawal.kinker\.chaostoolkit\settings.yaml'
+[33m[2023-09-18 15:38:52 WARNING] [check:33][39m 
+    There is a new version (1.16.0) of the chaostoolkit available.
+    You may upgrade by typing:
+    
+    $ pip install -U chaostoolkit
+    
+    Please review changes at https://github.com/chaostoolkit/chaostoolkit/blob/master/CHANGELOG.md
+    
+[36m[2023-09-18 15:38:52 DEBUG] [settings:30][39m The Chaos Toolkit settings file could not be found at 'C:\Users\ujjawal.kinker\.chaostoolkit\settings.yaml'.
+[36m[2023-09-18 15:38:52 DEBUG] [__init__:450][39m No controls to apply on 'loader'
+[36m[2023-09-18 15:38:52 DEBUG] [__init__:450][39m No controls to apply on 'loader'
+[36m[2023-09-18 15:38:52 DEBUG] [caching:24][39m Building activity cache...
+[36m[2023-09-18 15:38:52 DEBUG] [caching:35][39m Cached 4 activities
+[32m[2023-09-18 15:38:52 INFO] [experiment:58][39m Validating the experiment's syntax
+[36m[2023-09-18 15:38:52 DEBUG] [configuration:63][39m Loading configuration...
+[36m[2023-09-18 15:38:52 DEBUG] [secret:78][39m Loading secrets...
+[36m[2023-09-18 15:38:52 DEBUG] [secret:103][39m Done loading secrets
+[32m[2023-09-18 15:38:52 INFO] [experiment:109][39m Experiment looks valid
+[36m[2023-09-18 15:38:52 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2023-09-18 15:38:52 DEBUG] [cli:314][39m Runtime strategies: hypothesis - default / rollbacks - default
+[36m[2023-09-18 15:38:52 DEBUG] [caching:24][39m Building activity cache...
+[36m[2023-09-18 15:38:52 DEBUG] [caching:35][39m Cached 4 activities
+[36m[2023-09-18 15:38:52 DEBUG] [configuration:63][39m Loading configuration...
+[36m[2023-09-18 15:38:52 DEBUG] [secret:78][39m Loading secrets...
+[36m[2023-09-18 15:38:52 DEBUG] [secret:103][39m Done loading secrets
+[36m[2023-09-18 15:38:52 DEBUG] [configuration:160][39m Loading dynamic configuration...
+[36m[2023-09-18 15:38:52 DEBUG] [exit:89][39m System 'Windows-10-10.0.22000-SP0' does not expose SIGUSR signals
+[32m[2023-09-18 15:38:52 INFO] [run:369][39m Running experiment: Employee when database is down
+[36m[2023-09-18 15:38:52 DEBUG] [__init__:64][39m Initializing controls
+[32m[2023-09-18 15:38:52 INFO] [run:396][39m Steady-state strategy: default
+[32m[2023-09-18 15:38:52 INFO] [run:400][39m Rollbacks strategy: default
+[36m[2023-09-18 15:38:52 DEBUG] [__init__:450][39m No controls to apply on 'experiment'
+[36m[2023-09-18 15:38:52 DEBUG] [run:563][39m Running steady-state hypothesis before the method
+[32m[2023-09-18 15:38:52 INFO] [hypothesis:186][39m Steady state hypothesis: Employee data is available
+[36m[2023-09-18 15:38:52 DEBUG] [__init__:450][39m No controls to apply on 'hypothesis'
+[36m[2023-09-18 15:38:52 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[32m[2023-09-18 15:38:52 INFO] [activity:215][39m Probe: we-can-retrieve-employee-data
+[36m[2023-09-18 15:38:54 DEBUG] [activity:237][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Mon, 18 Sep 2023 10:08:54 GMT', 'Keep-Alive': 'timeout=60', 'Connection': 'keep-alive'}, 'body': ['Health', 'Bike Insurance', 'MakeUp']}'
+[36m[2023-09-18 15:38:54 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[36m[2023-09-18 15:38:54 DEBUG] [hypothesis:226][39m allowed tolerance is 200
+[32m[2023-09-18 15:38:54 INFO] [hypothesis:236][39m Steady state hypothesis is met!
+[36m[2023-09-18 15:38:54 DEBUG] [__init__:450][39m No controls to apply on 'hypothesis'
+[32m[2023-09-18 15:38:54 INFO] [run:684][39m Playing your experiment's method now...
+[36m[2023-09-18 15:38:54 DEBUG] [__init__:450][39m No controls to apply on 'method'
+[36m[2023-09-18 15:38:54 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[32m[2023-09-18 15:38:54 INFO] [activity:215][39m Action: enable_chaosmonkey
+[36m[2023-09-18 15:38:54 DEBUG] [python:33][39m Activity 'enable_chaosmonkey' loaded from 'C:\Users\ujjawal.kinker\AppData\Roaming\Python\Python311\site-packages\chaosspring\actions.py'
+[36m[2023-09-18 15:38:54 DEBUG] [activity:237][39m   => succeeded with 'Chaos Monkey is enabled'
+[36m[2023-09-18 15:38:54 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[36m[2023-09-18 15:38:54 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[32m[2023-09-18 15:38:54 INFO] [activity:215][39m Action: configure_assaults
+[36m[2023-09-18 15:38:54 DEBUG] [python:33][39m Activity 'configure_assaults' loaded from 'C:\Users\ujjawal.kinker\AppData\Roaming\Python\Python311\site-packages\chaosspring\actions.py'
+[36m[2023-09-18 15:38:54 DEBUG] [activity:237][39m   => succeeded with 'Assault config has changed'
+[36m[2023-09-18 15:38:54 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[36m[2023-09-18 15:38:54 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[32m[2023-09-18 15:38:54 INFO] [activity:215][39m Action: configure_repository_watcher
+[36m[2023-09-18 15:38:54 DEBUG] [activity:237][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'text/plain;charset=UTF-8', 'Content-Length': '26', 'Date': 'Mon, 18 Sep 2023 10:08:54 GMT', 'Keep-Alive': 'timeout=60', 'Connection': 'keep-alive'}, 'body': 'Watcher config has changed'}'
+[36m[2023-09-18 15:38:54 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[36m[2023-09-18 15:38:54 DEBUG] [__init__:450][39m No controls to apply on 'method'
+[36m[2023-09-18 15:38:54 DEBUG] [run:603][39m Running steady-state hypothesis after the method
+[32m[2023-09-18 15:38:54 INFO] [hypothesis:186][39m Steady state hypothesis: Employee data is available
+[36m[2023-09-18 15:38:54 DEBUG] [__init__:450][39m No controls to apply on 'hypothesis'
+[36m[2023-09-18 15:38:54 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[32m[2023-09-18 15:38:54 INFO] [activity:215][39m Probe: we-can-retrieve-employee-data
+[36m[2023-09-18 15:38:54 DEBUG] [activity:237][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Mon, 18 Sep 2023 10:08:54 GMT', 'Keep-Alive': 'timeout=60', 'Connection': 'keep-alive'}, 'body': []}'
+[36m[2023-09-18 15:38:54 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[36m[2023-09-18 15:38:54 DEBUG] [hypothesis:226][39m allowed tolerance is 200
+[32m[2023-09-18 15:38:54 INFO] [hypothesis:236][39m Steady state hypothesis is met!
+[36m[2023-09-18 15:38:54 DEBUG] [__init__:450][39m No controls to apply on 'hypothesis'
+[32m[2023-09-18 15:38:54 INFO] [run:964][39m Let's rollback...
+[36m[2023-09-18 15:38:54 DEBUG] [__init__:450][39m No controls to apply on 'rollback'
+[32m[2023-09-18 15:38:54 INFO] [rollback:34][39m Rollback: disable_chaosmonkey
+[36m[2023-09-18 15:38:54 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[32m[2023-09-18 15:38:54 INFO] [activity:215][39m Action: disable_chaosmonkey
+[36m[2023-09-18 15:38:54 DEBUG] [python:33][39m Activity 'disable_chaosmonkey' loaded from 'C:\Users\ujjawal.kinker\AppData\Roaming\Python\Python311\site-packages\chaosspring\actions.py'
+[36m[2023-09-18 15:38:54 DEBUG] [activity:237][39m   => succeeded with 'Chaos Monkey is disabled'
+[36m[2023-09-18 15:38:54 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[36m[2023-09-18 15:38:54 DEBUG] [__init__:450][39m No controls to apply on 'rollback'
+[32m[2023-09-18 15:38:54 INFO] [run:515][39m Experiment ended with status: completed
+[36m[2023-09-18 15:38:54 DEBUG] [__init__:450][39m No controls to apply on 'experiment'
+[36m[2023-09-18 15:38:54 DEBUG] [__init__:103][39m Cleaning up controls
+[36m[2023-09-18 15:38:54 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2023-09-18 15:39:44 DEBUG] [cli:114][39m ###############################################################################
+[36m[2023-09-18 15:39:44 DEBUG] [cli:115][39m Running command 'run'
+[36m[2023-09-18 15:39:44 DEBUG] [cli:119][39m Using settings file 'C:\Users\ujjawal.kinker\.chaostoolkit\settings.yaml'
+[33m[2023-09-18 15:39:46 WARNING] [check:33][39m 
+    There is a new version (1.16.0) of the chaostoolkit available.
+    You may upgrade by typing:
+    
+    $ pip install -U chaostoolkit
+    
+    Please review changes at https://github.com/chaostoolkit/chaostoolkit/blob/master/CHANGELOG.md
+    
+[36m[2023-09-18 15:39:46 DEBUG] [settings:30][39m The Chaos Toolkit settings file could not be found at 'C:\Users\ujjawal.kinker\.chaostoolkit\settings.yaml'.
+[36m[2023-09-18 15:39:46 DEBUG] [__init__:450][39m No controls to apply on 'loader'
+[36m[2023-09-18 15:39:46 DEBUG] [__init__:450][39m No controls to apply on 'loader'
+[36m[2023-09-18 15:39:46 DEBUG] [caching:24][39m Building activity cache...
+[36m[2023-09-18 15:39:46 DEBUG] [caching:35][39m Cached 4 activities
+[32m[2023-09-18 15:39:46 INFO] [experiment:58][39m Validating the experiment's syntax
+[36m[2023-09-18 15:39:46 DEBUG] [configuration:63][39m Loading configuration...
+[36m[2023-09-18 15:39:46 DEBUG] [secret:78][39m Loading secrets...
+[36m[2023-09-18 15:39:46 DEBUG] [secret:103][39m Done loading secrets
+[32m[2023-09-18 15:39:46 INFO] [experiment:109][39m Experiment looks valid
+[36m[2023-09-18 15:39:46 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2023-09-18 15:39:46 DEBUG] [cli:314][39m Runtime strategies: hypothesis - default / rollbacks - default
+[36m[2023-09-18 15:39:46 DEBUG] [caching:24][39m Building activity cache...
+[36m[2023-09-18 15:39:46 DEBUG] [caching:35][39m Cached 4 activities
+[36m[2023-09-18 15:39:46 DEBUG] [configuration:63][39m Loading configuration...
+[36m[2023-09-18 15:39:46 DEBUG] [secret:78][39m Loading secrets...
+[36m[2023-09-18 15:39:46 DEBUG] [secret:103][39m Done loading secrets
+[36m[2023-09-18 15:39:46 DEBUG] [configuration:160][39m Loading dynamic configuration...
+[36m[2023-09-18 15:39:46 DEBUG] [exit:89][39m System 'Windows-10-10.0.22000-SP0' does not expose SIGUSR signals
+[32m[2023-09-18 15:39:46 INFO] [run:369][39m Running experiment: Employee when database is down
+[36m[2023-09-18 15:39:46 DEBUG] [__init__:64][39m Initializing controls
+[32m[2023-09-18 15:39:46 INFO] [run:396][39m Steady-state strategy: default
+[32m[2023-09-18 15:39:46 INFO] [run:400][39m Rollbacks strategy: default
+[36m[2023-09-18 15:39:46 DEBUG] [__init__:450][39m No controls to apply on 'experiment'
+[36m[2023-09-18 15:39:46 DEBUG] [run:563][39m Running steady-state hypothesis before the method
+[32m[2023-09-18 15:39:46 INFO] [hypothesis:186][39m Steady state hypothesis: Employee data is available
+[36m[2023-09-18 15:39:46 DEBUG] [__init__:450][39m No controls to apply on 'hypothesis'
+[36m[2023-09-18 15:39:46 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[32m[2023-09-18 15:39:46 INFO] [activity:215][39m Probe: we-can-retrieve-employee-data
+[36m[2023-09-18 15:39:46 DEBUG] [activity:237][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Mon, 18 Sep 2023 10:09:46 GMT', 'Keep-Alive': 'timeout=60', 'Connection': 'keep-alive'}, 'body': ['Health', 'Bike Insurance', 'MakeUp']}'
+[36m[2023-09-18 15:39:46 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[36m[2023-09-18 15:39:46 DEBUG] [hypothesis:226][39m allowed tolerance is 200
+[32m[2023-09-18 15:39:46 INFO] [hypothesis:236][39m Steady state hypothesis is met!
+[36m[2023-09-18 15:39:46 DEBUG] [__init__:450][39m No controls to apply on 'hypothesis'
+[32m[2023-09-18 15:39:46 INFO] [run:684][39m Playing your experiment's method now...
+[36m[2023-09-18 15:39:46 DEBUG] [__init__:450][39m No controls to apply on 'method'
+[36m[2023-09-18 15:39:46 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[32m[2023-09-18 15:39:46 INFO] [activity:215][39m Action: enable_chaosmonkey
+[36m[2023-09-18 15:39:46 DEBUG] [python:33][39m Activity 'enable_chaosmonkey' loaded from 'C:\Users\ujjawal.kinker\AppData\Roaming\Python\Python311\site-packages\chaosspring\actions.py'
+[36m[2023-09-18 15:39:46 DEBUG] [activity:237][39m   => succeeded with 'Chaos Monkey is enabled'
+[36m[2023-09-18 15:39:46 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[36m[2023-09-18 15:39:46 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[32m[2023-09-18 15:39:46 INFO] [activity:215][39m Action: configure_assaults
+[36m[2023-09-18 15:39:46 DEBUG] [python:33][39m Activity 'configure_assaults' loaded from 'C:\Users\ujjawal.kinker\AppData\Roaming\Python\Python311\site-packages\chaosspring\actions.py'
+[36m[2023-09-18 15:39:46 DEBUG] [activity:237][39m   => succeeded with 'Assault config has changed'
+[36m[2023-09-18 15:39:46 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[36m[2023-09-18 15:39:46 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[32m[2023-09-18 15:39:46 INFO] [activity:215][39m Action: configure_repository_watcher
+[36m[2023-09-18 15:39:46 DEBUG] [activity:237][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'text/plain;charset=UTF-8', 'Content-Length': '26', 'Date': 'Mon, 18 Sep 2023 10:09:46 GMT', 'Keep-Alive': 'timeout=60', 'Connection': 'keep-alive'}, 'body': 'Watcher config has changed'}'
+[36m[2023-09-18 15:39:46 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[36m[2023-09-18 15:39:46 DEBUG] [__init__:450][39m No controls to apply on 'method'
+[36m[2023-09-18 15:39:46 DEBUG] [run:603][39m Running steady-state hypothesis after the method
+[32m[2023-09-18 15:39:46 INFO] [hypothesis:186][39m Steady state hypothesis: Employee data is available
+[36m[2023-09-18 15:39:46 DEBUG] [__init__:450][39m No controls to apply on 'hypothesis'
+[36m[2023-09-18 15:39:46 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[32m[2023-09-18 15:39:46 INFO] [activity:215][39m Probe: we-can-retrieve-employee-data
+[36m[2023-09-18 15:39:46 DEBUG] [activity:237][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Mon, 18 Sep 2023 10:09:46 GMT', 'Keep-Alive': 'timeout=60', 'Connection': 'keep-alive'}, 'body': []}'
+[36m[2023-09-18 15:39:46 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[36m[2023-09-18 15:39:46 DEBUG] [hypothesis:226][39m allowed tolerance is 200
+[32m[2023-09-18 15:39:46 INFO] [hypothesis:236][39m Steady state hypothesis is met!
+[36m[2023-09-18 15:39:46 DEBUG] [__init__:450][39m No controls to apply on 'hypothesis'
+[32m[2023-09-18 15:39:46 INFO] [run:964][39m Let's rollback...
+[36m[2023-09-18 15:39:46 DEBUG] [__init__:450][39m No controls to apply on 'rollback'
+[32m[2023-09-18 15:39:46 INFO] [rollback:34][39m Rollback: disable_chaosmonkey
+[36m[2023-09-18 15:39:46 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[32m[2023-09-18 15:39:46 INFO] [activity:215][39m Action: disable_chaosmonkey
+[36m[2023-09-18 15:39:46 DEBUG] [python:33][39m Activity 'disable_chaosmonkey' loaded from 'C:\Users\ujjawal.kinker\AppData\Roaming\Python\Python311\site-packages\chaosspring\actions.py'
+[36m[2023-09-18 15:39:46 DEBUG] [activity:237][39m   => succeeded with 'Chaos Monkey is disabled'
+[36m[2023-09-18 15:39:46 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[36m[2023-09-18 15:39:46 DEBUG] [__init__:450][39m No controls to apply on 'rollback'
+[32m[2023-09-18 15:39:46 INFO] [run:515][39m Experiment ended with status: completed
+[36m[2023-09-18 15:39:46 DEBUG] [__init__:450][39m No controls to apply on 'experiment'
+[36m[2023-09-18 15:39:46 DEBUG] [__init__:103][39m Cleaning up controls
+[36m[2023-09-18 15:39:46 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2023-09-18 15:40:56 DEBUG] [cli:114][39m ###############################################################################
+[36m[2023-09-18 15:40:56 DEBUG] [cli:115][39m Running command 'run'
+[36m[2023-09-18 15:40:56 DEBUG] [cli:119][39m Using settings file 'C:\Users\ujjawal.kinker\.chaostoolkit\settings.yaml'
+[33m[2023-09-18 15:40:57 WARNING] [check:33][39m 
+    There is a new version (1.16.0) of the chaostoolkit available.
+    You may upgrade by typing:
+    
+    $ pip install -U chaostoolkit
+    
+    Please review changes at https://github.com/chaostoolkit/chaostoolkit/blob/master/CHANGELOG.md
+    
+[36m[2023-09-18 15:40:57 DEBUG] [settings:30][39m The Chaos Toolkit settings file could not be found at 'C:\Users\ujjawal.kinker\.chaostoolkit\settings.yaml'.
+[36m[2023-09-18 15:40:57 DEBUG] [__init__:450][39m No controls to apply on 'loader'
+[36m[2023-09-18 15:40:57 DEBUG] [__init__:450][39m No controls to apply on 'loader'
+[36m[2023-09-18 15:40:57 DEBUG] [caching:24][39m Building activity cache...
+[36m[2023-09-18 15:40:57 DEBUG] [caching:35][39m Cached 4 activities
+[32m[2023-09-18 15:40:57 INFO] [experiment:58][39m Validating the experiment's syntax
+[36m[2023-09-18 15:40:57 DEBUG] [configuration:63][39m Loading configuration...
+[36m[2023-09-18 15:40:57 DEBUG] [secret:78][39m Loading secrets...
+[36m[2023-09-18 15:40:57 DEBUG] [secret:103][39m Done loading secrets
+[32m[2023-09-18 15:40:57 INFO] [experiment:109][39m Experiment looks valid
+[36m[2023-09-18 15:40:57 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2023-09-18 15:40:57 DEBUG] [cli:314][39m Runtime strategies: hypothesis - default / rollbacks - default
+[36m[2023-09-18 15:40:57 DEBUG] [caching:24][39m Building activity cache...
+[36m[2023-09-18 15:40:57 DEBUG] [caching:35][39m Cached 4 activities
+[36m[2023-09-18 15:40:57 DEBUG] [configuration:63][39m Loading configuration...
+[36m[2023-09-18 15:40:57 DEBUG] [secret:78][39m Loading secrets...
+[36m[2023-09-18 15:40:57 DEBUG] [secret:103][39m Done loading secrets
+[36m[2023-09-18 15:40:57 DEBUG] [configuration:160][39m Loading dynamic configuration...
+[36m[2023-09-18 15:40:57 DEBUG] [exit:89][39m System 'Windows-10-10.0.22000-SP0' does not expose SIGUSR signals
+[32m[2023-09-18 15:40:57 INFO] [run:369][39m Running experiment: Employee when database is down
+[36m[2023-09-18 15:40:57 DEBUG] [__init__:64][39m Initializing controls
+[32m[2023-09-18 15:40:57 INFO] [run:396][39m Steady-state strategy: default
+[32m[2023-09-18 15:40:57 INFO] [run:400][39m Rollbacks strategy: default
+[36m[2023-09-18 15:40:57 DEBUG] [__init__:450][39m No controls to apply on 'experiment'
+[36m[2023-09-18 15:40:57 DEBUG] [run:563][39m Running steady-state hypothesis before the method
+[32m[2023-09-18 15:40:57 INFO] [hypothesis:186][39m Steady state hypothesis: Employee data is available
+[36m[2023-09-18 15:40:57 DEBUG] [__init__:450][39m No controls to apply on 'hypothesis'
+[36m[2023-09-18 15:40:57 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[32m[2023-09-18 15:40:57 INFO] [activity:215][39m Probe: we-can-retrieve-employee-data
+[36m[2023-09-18 15:40:58 DEBUG] [activity:237][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Mon, 18 Sep 2023 10:10:58 GMT', 'Keep-Alive': 'timeout=60', 'Connection': 'keep-alive'}, 'body': ['Health', 'Bike Insurance', 'MakeUp']}'
+[36m[2023-09-18 15:40:58 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[36m[2023-09-18 15:40:58 DEBUG] [hypothesis:226][39m allowed tolerance is 500
+[36m[2023-09-18 15:40:58 DEBUG] [__init__:450][39m No controls to apply on 'hypothesis'
+[31m[2023-09-18 15:40:58 CRITICAL] [run:583][39m Steady state probe 'we-can-retrieve-employee-data' is not in the given tolerance so failing this experiment
+[32m[2023-09-18 15:40:58 INFO] [run:964][39m Let's rollback...
+[36m[2023-09-18 15:40:58 DEBUG] [__init__:450][39m No controls to apply on 'rollback'
+[32m[2023-09-18 15:40:58 INFO] [rollback:34][39m Rollback: disable_chaosmonkey
+[36m[2023-09-18 15:40:58 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[32m[2023-09-18 15:40:58 INFO] [activity:215][39m Action: disable_chaosmonkey
+[36m[2023-09-18 15:40:58 DEBUG] [python:33][39m Activity 'disable_chaosmonkey' loaded from 'C:\Users\ujjawal.kinker\AppData\Roaming\Python\Python311\site-packages\chaosspring\actions.py'
+[36m[2023-09-18 15:40:58 DEBUG] [activity:237][39m   => succeeded with 'Chaos Monkey is disabled'
+[36m[2023-09-18 15:40:58 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[36m[2023-09-18 15:40:58 DEBUG] [__init__:450][39m No controls to apply on 'rollback'
+[32m[2023-09-18 15:40:58 INFO] [run:515][39m Experiment ended with status: completed
+[36m[2023-09-18 15:40:58 DEBUG] [__init__:450][39m No controls to apply on 'experiment'
+[36m[2023-09-18 15:40:58 DEBUG] [__init__:103][39m Cleaning up controls
+[36m[2023-09-18 15:40:58 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2023-09-18 15:41:51 DEBUG] [cli:114][39m ###############################################################################
+[36m[2023-09-18 15:41:51 DEBUG] [cli:115][39m Running command 'run'
+[36m[2023-09-18 15:41:51 DEBUG] [cli:119][39m Using settings file 'C:\Users\ujjawal.kinker\.chaostoolkit\settings.yaml'
+[33m[2023-09-18 15:41:53 WARNING] [check:33][39m 
+    There is a new version (1.16.0) of the chaostoolkit available.
+    You may upgrade by typing:
+    
+    $ pip install -U chaostoolkit
+    
+    Please review changes at https://github.com/chaostoolkit/chaostoolkit/blob/master/CHANGELOG.md
+    
+[36m[2023-09-18 15:41:53 DEBUG] [settings:30][39m The Chaos Toolkit settings file could not be found at 'C:\Users\ujjawal.kinker\.chaostoolkit\settings.yaml'.
+[36m[2023-09-18 15:41:53 DEBUG] [__init__:450][39m No controls to apply on 'loader'
+[36m[2023-09-18 15:41:53 DEBUG] [__init__:450][39m No controls to apply on 'loader'
+[36m[2023-09-18 15:41:53 DEBUG] [caching:24][39m Building activity cache...
+[36m[2023-09-18 15:41:53 DEBUG] [caching:35][39m Cached 4 activities
+[32m[2023-09-18 15:41:53 INFO] [experiment:58][39m Validating the experiment's syntax
+[36m[2023-09-18 15:41:53 DEBUG] [configuration:63][39m Loading configuration...
+[36m[2023-09-18 15:41:53 DEBUG] [secret:78][39m Loading secrets...
+[36m[2023-09-18 15:41:53 DEBUG] [secret:103][39m Done loading secrets
+[32m[2023-09-18 15:41:53 INFO] [experiment:109][39m Experiment looks valid
+[36m[2023-09-18 15:41:53 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2023-09-18 15:41:53 DEBUG] [cli:314][39m Runtime strategies: hypothesis - default / rollbacks - default
+[36m[2023-09-18 15:41:53 DEBUG] [caching:24][39m Building activity cache...
+[36m[2023-09-18 15:41:53 DEBUG] [caching:35][39m Cached 4 activities
+[36m[2023-09-18 15:41:53 DEBUG] [configuration:63][39m Loading configuration...
+[36m[2023-09-18 15:41:53 DEBUG] [secret:78][39m Loading secrets...
+[36m[2023-09-18 15:41:53 DEBUG] [secret:103][39m Done loading secrets
+[36m[2023-09-18 15:41:53 DEBUG] [configuration:160][39m Loading dynamic configuration...
+[36m[2023-09-18 15:41:54 DEBUG] [exit:89][39m System 'Windows-10-10.0.22000-SP0' does not expose SIGUSR signals
+[32m[2023-09-18 15:41:54 INFO] [run:369][39m Running experiment: Employee when database is down
+[36m[2023-09-18 15:41:54 DEBUG] [__init__:64][39m Initializing controls
+[32m[2023-09-18 15:41:54 INFO] [run:396][39m Steady-state strategy: default
+[32m[2023-09-18 15:41:54 INFO] [run:400][39m Rollbacks strategy: default
+[36m[2023-09-18 15:41:54 DEBUG] [__init__:450][39m No controls to apply on 'experiment'
+[36m[2023-09-18 15:41:54 DEBUG] [run:563][39m Running steady-state hypothesis before the method
+[32m[2023-09-18 15:41:54 INFO] [hypothesis:186][39m Steady state hypothesis: Employee data is available
+[36m[2023-09-18 15:41:54 DEBUG] [__init__:450][39m No controls to apply on 'hypothesis'
+[36m[2023-09-18 15:41:54 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[32m[2023-09-18 15:41:54 INFO] [activity:215][39m Probe: we-can-retrieve-employee-data
+[36m[2023-09-18 15:41:54 DEBUG] [activity:237][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Mon, 18 Sep 2023 10:11:54 GMT', 'Keep-Alive': 'timeout=60', 'Connection': 'keep-alive'}, 'body': ['Health', 'Bike Insurance', 'MakeUp']}'
+[36m[2023-09-18 15:41:54 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[36m[2023-09-18 15:41:54 DEBUG] [hypothesis:226][39m allowed tolerance is 200
+[32m[2023-09-18 15:41:54 INFO] [hypothesis:236][39m Steady state hypothesis is met!
+[36m[2023-09-18 15:41:54 DEBUG] [__init__:450][39m No controls to apply on 'hypothesis'
+[32m[2023-09-18 15:41:54 INFO] [run:684][39m Playing your experiment's method now...
+[36m[2023-09-18 15:41:54 DEBUG] [__init__:450][39m No controls to apply on 'method'
+[36m[2023-09-18 15:41:54 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[32m[2023-09-18 15:41:54 INFO] [activity:215][39m Action: enable_chaosmonkey
+[36m[2023-09-18 15:41:54 DEBUG] [python:33][39m Activity 'enable_chaosmonkey' loaded from 'C:\Users\ujjawal.kinker\AppData\Roaming\Python\Python311\site-packages\chaosspring\actions.py'
+[36m[2023-09-18 15:41:54 DEBUG] [activity:237][39m   => succeeded with 'Chaos Monkey is enabled'
+[36m[2023-09-18 15:41:54 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[36m[2023-09-18 15:41:54 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[32m[2023-09-18 15:41:54 INFO] [activity:215][39m Action: configure_assaults
+[36m[2023-09-18 15:41:54 DEBUG] [python:33][39m Activity 'configure_assaults' loaded from 'C:\Users\ujjawal.kinker\AppData\Roaming\Python\Python311\site-packages\chaosspring\actions.py'
+[36m[2023-09-18 15:41:54 DEBUG] [activity:237][39m   => succeeded with 'Assault config has changed'
+[36m[2023-09-18 15:41:54 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[36m[2023-09-18 15:41:54 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[32m[2023-09-18 15:41:54 INFO] [activity:215][39m Action: configure_repository_watcher
+[36m[2023-09-18 15:41:54 DEBUG] [activity:237][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'text/plain;charset=UTF-8', 'Content-Length': '26', 'Date': 'Mon, 18 Sep 2023 10:11:54 GMT', 'Keep-Alive': 'timeout=60', 'Connection': 'keep-alive'}, 'body': 'Watcher config has changed'}'
+[36m[2023-09-18 15:41:54 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[36m[2023-09-18 15:41:54 DEBUG] [__init__:450][39m No controls to apply on 'method'
+[36m[2023-09-18 15:41:54 DEBUG] [run:603][39m Running steady-state hypothesis after the method
+[32m[2023-09-18 15:41:54 INFO] [hypothesis:186][39m Steady state hypothesis: Employee data is available
+[36m[2023-09-18 15:41:54 DEBUG] [__init__:450][39m No controls to apply on 'hypothesis'
+[36m[2023-09-18 15:41:54 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[32m[2023-09-18 15:41:54 INFO] [activity:215][39m Probe: we-can-retrieve-employee-data
+[36m[2023-09-18 15:41:54 DEBUG] [activity:237][39m   => succeeded with '{'status': 200, 'headers': {'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Mon, 18 Sep 2023 10:11:54 GMT', 'Keep-Alive': 'timeout=60', 'Connection': 'keep-alive'}, 'body': []}'
+[36m[2023-09-18 15:41:54 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[36m[2023-09-18 15:41:54 DEBUG] [hypothesis:226][39m allowed tolerance is 200
+[32m[2023-09-18 15:41:54 INFO] [hypothesis:236][39m Steady state hypothesis is met!
+[36m[2023-09-18 15:41:54 DEBUG] [__init__:450][39m No controls to apply on 'hypothesis'
+[32m[2023-09-18 15:41:54 INFO] [run:964][39m Let's rollback...
+[36m[2023-09-18 15:41:54 DEBUG] [__init__:450][39m No controls to apply on 'rollback'
+[32m[2023-09-18 15:41:54 INFO] [rollback:34][39m Rollback: disable_chaosmonkey
+[36m[2023-09-18 15:41:54 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[32m[2023-09-18 15:41:54 INFO] [activity:215][39m Action: disable_chaosmonkey
+[36m[2023-09-18 15:41:54 DEBUG] [python:33][39m Activity 'disable_chaosmonkey' loaded from 'C:\Users\ujjawal.kinker\AppData\Roaming\Python\Python311\site-packages\chaosspring\actions.py'
+[36m[2023-09-18 15:41:54 DEBUG] [activity:237][39m   => succeeded with 'Chaos Monkey is disabled'
+[36m[2023-09-18 15:41:54 DEBUG] [__init__:450][39m No controls to apply on 'activity'
+[36m[2023-09-18 15:41:54 DEBUG] [__init__:450][39m No controls to apply on 'rollback'
+[32m[2023-09-18 15:41:54 INFO] [run:515][39m Experiment ended with status: completed
+[36m[2023-09-18 15:41:54 DEBUG] [__init__:450][39m No controls to apply on 'experiment'
+[36m[2023-09-18 15:41:54 DEBUG] [__init__:103][39m Cleaning up controls
+[36m[2023-09-18 15:41:54 DEBUG] [caching:42][39m Clearing activities cache

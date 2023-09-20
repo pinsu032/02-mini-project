@@ -41,7 +41,12 @@ public class ReportServiceImpl implements ReportService {
 	@Override
 	public List<String> getPlans() {
 
-		return repo.getPlans();
+		try {
+			return repo.getPlans();
+		} catch (Exception e) {
+			System.out.println("========="+e.getMessage());
+			return new ArrayList<String>();
+		}
 	}
 
 	@Override
